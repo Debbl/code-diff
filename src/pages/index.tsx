@@ -1,7 +1,56 @@
+import { DiffEditor } from "@monaco-editor/react";
+import type { Theme } from "~/hooks/useDiffEditor";
+import useDiffEditor from "~/hooks/useDiffEditor";
+
 export default function Index() {
+  const [
+    { language, languages, theme },
+    { setTheme, handleChange, handleOnMount },
+  ] = useDiffEditor();
+
   return (
-    <>
-      <div>hello</div>
-    </>
+    <div className="h-screen">
+      <div className="p-3 flex gap-x-3">
+        <div>
+          <label>
+            选择语言:
+            <select
+              value={language}
+              onChange={handleChange}
+              className="border ml-3 w-60"
+            >
+              {languages.map((lang) => (
+                <option value={lang.id} key={lang.id}>
+                  {lang.id}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
+        <div>
+          <label>
+            选择主题:
+            <select
+              value={theme}
+              onChange={(e) => setTheme(e.target.value as Theme)}
+              className="border ml-3 w-60"
+            >
+              <option value="light">light</option>
+              <option value="vs-dark">vs-dark</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div className="h-full">
+        <DiffEditor
+          options={{ originalEditable: true }}
+          onMount={handleOnMount}
+          height="100%"
+          theme={theme}
+          language={language}
+        />
+      </div>
+    </div>
   );
 }
