@@ -1,5 +1,6 @@
 import { DiffEditor } from "@monaco-editor/react";
 import Head from "next/head";
+import nextConfig from "../../next.config";
 import Footer from "~/components/Footer";
 import type { Theme } from "~/hooks/useDiffEditor";
 import useDiffEditor from "~/hooks/useDiffEditor";
@@ -14,7 +15,11 @@ export default function Index() {
     <>
       <Head>
         <title>code-diff</title>
-        <link rel="shortcut icon" href="/logo.svg" type="image/x-icon" />
+        <link
+          rel="shortcut icon"
+          href={`${nextConfig.basePath}/logo.svg`}
+          type="image/x-icon"
+        />
       </Head>
       <div className="h-screen flex flex-col">
         <h1 className="text-center my-2 text-xl font-medium">Code Diff</h1>
