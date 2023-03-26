@@ -10,6 +10,8 @@ export default function Index() {
 
   return (
     <div className="h-screen">
+      <h1 className="text-center my-2 text-xl font-medium">Code Diff</h1>
+
       <div className="p-3 flex gap-x-3">
         <div>
           <label>
