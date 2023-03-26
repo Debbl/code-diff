@@ -1,8 +1,4 @@
-import type {
-  DiffEditorProps,
-  DiffOnMount,
-  Monaco,
-} from "@monaco-editor/react";
+import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import type * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 import type { ChangeEventHandler } from "react";
 import { useState } from "react";
@@ -15,6 +11,7 @@ function useDiffEditor() {
     monaco.languages.ILanguageExtensionPoint[]
   >([]);
   const [theme, setTheme] = useState<Theme>("light");
+  const [renderSideBySide, setRenderSideBySide] = useState(true);
 
   const handleOnMount: DiffOnMount = (
     editor: monaco.editor.IStandaloneDiffEditor,
@@ -32,11 +29,13 @@ function useDiffEditor() {
       language,
       languages,
       theme,
+      renderSideBySide,
     },
     {
       setLanguage,
       setLanguages,
       setTheme,
+      setRenderSideBySide,
       handleOnMount,
       handleChange,
     },

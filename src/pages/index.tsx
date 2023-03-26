@@ -4,8 +4,8 @@ import useDiffEditor from "~/hooks/useDiffEditor";
 
 export default function Index() {
   const [
-    { language, languages, theme },
-    { setTheme, handleChange, handleOnMount },
+    { language, languages, theme, renderSideBySide },
+    { setTheme, setRenderSideBySide, handleChange, handleOnMount },
   ] = useDiffEditor();
 
   return (
@@ -13,7 +13,7 @@ export default function Index() {
       <div className="p-3 flex gap-x-3">
         <div>
           <label>
-            选择语言:
+            选择语言：
             <select
               value={language}
               onChange={handleChange}
@@ -29,7 +29,7 @@ export default function Index() {
         </div>
         <div>
           <label>
-            选择主题:
+            选择主题：
             <select
               value={theme}
               onChange={(e) => setTheme(e.target.value as Theme)}
@@ -40,11 +40,25 @@ export default function Index() {
             </select>
           </label>
         </div>
+        <div>
+          <label>
+            并排显示：
+            <input
+              className="ml-3"
+              type="checkbox"
+              checked={renderSideBySide}
+              onChange={(e) => setRenderSideBySide(e.target.checked)}
+            />
+          </label>
+        </div>
       </div>
 
       <div className="h-full">
         <DiffEditor
-          options={{ originalEditable: true }}
+          options={{
+            originalEditable: true,
+            renderSideBySide,
+          }}
           onMount={handleOnMount}
           height="100%"
           theme={theme}
