@@ -1,7 +1,7 @@
 import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import type * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 import type { ChangeEventHandler } from "react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 export type Theme = "light" | "vs-dark";
 
@@ -13,16 +13,23 @@ function useDiffEditor() {
   const [theme, setTheme] = useState<Theme>("light");
   const [renderSideBySide, setRenderSideBySide] = useState(true);
 
-  const handleOnMount: DiffOnMount = (
-    editor: monaco.editor.IStandaloneDiffEditor,
-    monaco: Monaco
-  ) => {
-    setLanguages(monaco.languages.getLanguages());
-  };
+  const actions = useMemo(() => {
+    const handleOnMount: DiffOnMount = (
+      editor: monaco.editor.IStandaloneDiffEditor,
+      monaco: Monaco
+    ) => {
+      setLanguages(monaco.languages.getLanguages());
+    };
 
-  const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
-    setLanguage(e.target.value);
-  };
+    const handleChange: ChangeEventHandler<HTMLSelectElement> = (e) => {
+      setLanguage(e.target.value);
+    };
+
+    return {
+      handleOnMount,
+      handleChange,
+    };
+  }, []);
 
   return [
     {
@@ -36,8 +43,7 @@ function useDiffEditor() {
       setLanguages,
       setTheme,
       setRenderSideBySide,
-      handleOnMount,
-      handleChange,
+      ...actions,
     },
   ] as const;
 }
