@@ -10,6 +10,7 @@ function useDiffEditor() {
   const [languages, setLanguages] = useState<
     monaco.languages.ILanguageExtensionPoint[]
   >([]);
+
   const [theme, setTheme] = useState<Theme>("light");
   const [renderSideBySide, setRenderSideBySide] = useState(true);
 

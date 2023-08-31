@@ -21,17 +21,17 @@ export default function Index() {
           type="image/x-icon"
         />
       </Head>
-      <div className="h-screen flex flex-col">
-        <h1 className="text-center my-2 text-xl font-medium">Code Diff</h1>
+      <div className="flex h-screen flex-col">
+        <h1 className="my-2 text-center text-xl font-medium">Code Diff</h1>
 
-        <div className="p-3 flex gap-x-3">
+        <div className="flex gap-x-3 p-3">
           <div>
             <label>
               选择语言：
               <select
                 value={language}
                 onChange={handleChange}
-                className="border ml-3 w-60"
+                className="ml-3 w-60 border"
               >
                 {languages.map((lang) => (
                   <option value={lang.id} key={lang.id}>
@@ -47,7 +47,7 @@ export default function Index() {
               <select
                 value={theme}
                 onChange={(e) => setTheme(e.target.value as Theme)}
-                className="border ml-3 w-60"
+                className="ml-3 w-60 border"
               >
                 <option value="light">light</option>
                 <option value="vs-dark">vs-dark</option>
