@@ -1,22 +1,15 @@
-import Image from "next/image";
-import GithubIcon from "~/assets/images/github.svg";
-import useMainStore from "~/store/useMainStore";
-import GithubIconDark from "~/assets/images/github-dark.svg";
+import { Icon } from "@iconify/react";
+import logoGithub from "@iconify/icons-carbon/logo-github";
 
 function GitHubInfo() {
-  const theme = useMainStore((s) => (s.theme === "vs-dark" ? "dark" : "light"));
   return (
-    <div className="ml-8 flex h-[16px] w-[16px] justify-center">
+    <div className="ml-8 flex h-[18px] w-[18px] justify-center">
       <a
         href="https://github.com/Debbl/code-diff"
         target="_blank"
         rel="noreferrer"
       >
-        <Image
-          src={theme === "light" ? GithubIcon : GithubIconDark}
-          alt="https://github.com/Debbl/code-diff"
-          unoptimized
-        ></Image>
+        <Icon icon={logoGithub} className="h-[18px] w-[18px]" />
       </a>
     </div>
   );
