@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 import type * as monaco from "monaco-editor/esm/vs/editor/editor.api";
 import type { Theme } from "~/types";
 
@@ -18,16 +19,24 @@ export interface MainStoreActions {
   ) => void;
 }
 
-const useMainStore = create<MainStoreState & MainStoreActions>()((set) => ({
-  language: "plaintext",
-  languages: [],
-  theme: "light",
-  renderSideBySide: true,
+const useMainStore = create<MainStoreState & MainStoreActions>()(
+  persist(
+    (set) => ({
+      language: "plaintext",
+      languages: [],
+      theme: "light",
+      renderSideBySide: true,
 
-  setLanguage: (language) => set({ language }),
-  setLanguages: (languages) => set({ languages }),
-  setTheme: (theme) => set({ theme }),
-  setRenderSideBySide: (renderSideBySide) => set({ renderSideBySide }),
-}));
+      setLanguage: (language) => set({ language }),
+      setLanguages: (languages) => set({ languages }),
+      setTheme: (theme) => set({ theme }),
+      setRenderSideBySide: (renderSideBySide) => set({ renderSideBySide }),
+    }),
+    {
+      name: "code-diff-main-store",
+      version: 1,
+    }
+  )
+);
 
 export default useMainStore;
