@@ -9,6 +9,7 @@ import useMainStore from "~/store/useMainStore";
 import Header from "~/components/Header";
 import useTheme from "~/hooks/useTheme";
 import Alert from "~/components/Alert";
+import useLatest from "~/hooks/useLatest";
 
 export default function Page() {
   const [
@@ -41,6 +42,7 @@ export default function Page() {
   useTheme();
   const alertRef = useRef<ElementRef<typeof Alert>>(null);
   const monacoRef = useRef<Monaco>();
+  const languageRef = useLatest(language);
 
   const handleOnMount: DiffOnMount = (editor, monaco) => {
     monacoRef.current = monaco;
@@ -56,7 +58,11 @@ export default function Page() {
       const guessLanguage = hljs.highlightAuto(ov).language;
       const languagesId = languages.map((v) => v.id);
 
-      if (guessLanguage && languagesId.includes(guessLanguage)) {
+      if (
+        guessLanguage &&
+        guessLanguage !== languageRef.current &&
+        languagesId.includes(guessLanguage)
+      ) {
         alertRef?.current?.showAlert(`已自动检测到语言 ${guessLanguage}`);
         setLanguage(guessLanguage);
       }
