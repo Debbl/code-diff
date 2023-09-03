@@ -1,3 +1,6 @@
+import { Icon } from "@iconify/react";
+import closeFilled from "@iconify/icons-carbon/close-filled";
+
 import GitHubInfo from "./GitHubInfo";
 import useHasHydrated from "~/hooks/useHasHydrated";
 import useMainStore from "~/store/useMainStore";
@@ -6,7 +9,13 @@ import type { Theme } from "~/types";
 const Header: React.FC = () => {
   const [
     { language, languages, theme, renderSideBySide },
-    { setLanguage, setTheme, setRenderSideBySide },
+    {
+      setOriginalValue,
+      setModifiedValue,
+      setLanguage,
+      setTheme,
+      setRenderSideBySide,
+    },
   ] = useMainStore((s) => [
     {
       language: s.language,
@@ -19,6 +28,8 @@ const Header: React.FC = () => {
       setLanguages: s.setLanguages,
       setTheme: s.setTheme,
       setRenderSideBySide: s.setRenderSideBySide,
+      setOriginalValue: s.setOriginalValue,
+      setModifiedValue: s.setModifiedValue,
     },
   ]);
 
@@ -80,6 +91,16 @@ const Header: React.FC = () => {
             onChange={handleRenderSideBySideChange}
           />
         </label>
+      </div>
+
+      <div
+        className="btn btn-circle btn-xs"
+        onClick={() => {
+          setOriginalValue("");
+          setModifiedValue("");
+        }}
+      >
+        <Icon className="h-[18px] w-[18px] cursor-pointer" icon={closeFilled} />
       </div>
 
       <GitHubInfo />

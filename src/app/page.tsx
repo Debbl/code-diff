@@ -1,5 +1,5 @@
 "use client";
-import type { DiffOnMount, Monaco } from "@monaco-editor/react";
+import type { DiffOnMount } from "@monaco-editor/react";
 import { DiffEditor } from "@monaco-editor/react";
 import { basePath } from "../../next.config";
 import useMainStore from "~/store/useMainStore";
@@ -9,20 +9,31 @@ import useTheme from "~/hooks/useTheme";
 export default function Page() {
   useTheme();
 
-  const [{ language, theme, renderSideBySide }, { setLanguages }] =
-    useMainStore((s) => [
-      {
-        language: s.language,
-        theme: s.theme,
-        renderSideBySide: s.renderSideBySide,
-      },
-      {
-        setLanguages: s.setLanguages,
-      },
-    ]);
+  const [
+    { originalValue, modifiedValue, language, theme, renderSideBySide },
+    { setOriginalValue, setModifiedValue, setLanguages },
+  ] = useMainStore((s) => [
+    {
+      originalValue: s.originalValue,
+      modifiedValue: s.modifiedValue,
+      language: s.language,
+      theme: s.theme,
+      renderSideBySide: s.renderSideBySide,
+    },
+    {
+      setLanguages: s.setLanguages,
+      setOriginalValue: s.setOriginalValue,
+      setModifiedValue: s.setModifiedValue,
+    },
+  ]);
 
-  const handleOnMount: DiffOnMount = (_, monaco: Monaco) => {
+  const handleOnMount: DiffOnMount = (editor, monaco) => {
     setLanguages(monaco.languages.getLanguages());
+
+    editor.onDidUpdateDiff(() => {
+      setOriginalValue(editor.getModel()?.original.getValue() || "");
+      setModifiedValue(editor.getModel()?.modified.getValue() || "");
+    });
   };
 
   return (
@@ -39,6 +50,8 @@ export default function Page() {
               originalEditable: true,
               renderSideBySide,
             }}
+            original={originalValue}
+            modified={modifiedValue}
             onMount={handleOnMount}
             height="100%"
             theme={theme}
