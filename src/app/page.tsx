@@ -1,3 +1,4 @@
+"use client";
 import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import { DiffEditor } from "@monaco-editor/react";
 import Head from "next/head";
@@ -6,7 +7,7 @@ import useMainStore from "~/store/useMainStore";
 import Header from "~/components/Header";
 import useTheme from "~/hooks/useTheme";
 
-export default function Index() {
+export default function Page() {
   useTheme();
 
   const [{ language, theme, renderSideBySide }, { setLanguages }] =
