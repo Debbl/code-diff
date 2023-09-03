@@ -1,15 +1,29 @@
+import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import { DiffEditor } from "@monaco-editor/react";
 import Head from "next/head";
 import nextConfig from "../../next.config";
-import Footer from "~/components/Footer";
-import type { Theme } from "~/hooks/useDiffEditor";
-import useDiffEditor from "~/hooks/useDiffEditor";
+import useMainStore from "~/store/useMainStore";
+import Header from "~/components/Header";
+import useTheme from "~/hooks/useTheme";
 
 export default function Index() {
-  const [
-    { language, languages, theme, renderSideBySide },
-    { setTheme, setRenderSideBySide, handleChange, handleOnMount },
-  ] = useDiffEditor();
+  useTheme();
+
+  const [{ language, theme, renderSideBySide }, { setLanguages }] =
+    useMainStore((s) => [
+      {
+        language: s.language,
+        theme: s.theme,
+        renderSideBySide: s.renderSideBySide,
+      },
+      {
+        setLanguages: s.setLanguages,
+      },
+    ]);
+
+  const handleOnMount: DiffOnMount = (_, monaco: Monaco) => {
+    setLanguages(monaco.languages.getLanguages());
+  };
 
   return (
     <>
@@ -21,53 +35,12 @@ export default function Index() {
           type="image/x-icon"
         />
       </Head>
-      <div className="flex h-screen flex-col">
+      <div className="flex h-screen flex-col items-center">
         <h1 className="my-2 text-center text-xl font-medium">Code Diff</h1>
 
-        <div className="flex gap-x-3 p-3">
-          <div>
-            <label>
-              选择语言：
-              <select
-                value={language}
-                onChange={handleChange}
-                className="ml-3 w-60 border"
-              >
-                {languages.map((lang) => (
-                  <option value={lang.id} key={lang.id}>
-                    {lang.id}
-                  </option>
-                ))}
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>
-              选择主题：
-              <select
-                value={theme}
-                onChange={(e) => setTheme(e.target.value as Theme)}
-                className="ml-3 w-60 border"
-              >
-                <option value="light">light</option>
-                <option value="vs-dark">vs-dark</option>
-              </select>
-            </label>
-          </div>
-          <div>
-            <label>
-              并排显示：
-              <input
-                className="ml-3"
-                type="checkbox"
-                checked={renderSideBySide}
-                onChange={(e) => setRenderSideBySide(e.target.checked)}
-              />
-            </label>
-          </div>
-        </div>
+        <Header />
 
-        <div className="h-full">
+        <main className="h-full w-full">
           <DiffEditor
             options={{
               originalEditable: true,
@@ -78,9 +51,7 @@ export default function Index() {
             theme={theme}
             language={language}
           />
-        </div>
-
-        <Footer />
+        </main>
       </div>
     </>
   );
