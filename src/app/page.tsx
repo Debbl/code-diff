@@ -1,7 +1,6 @@
 "use client";
 import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import { DiffEditor } from "@monaco-editor/react";
-import Head from "next/head";
 import { basePath } from "../../next.config";
 import useMainStore from "~/store/useMainStore";
 import Header from "~/components/Header";
@@ -28,15 +27,6 @@ export default function Page() {
 
   return (
     <>
-      <Head>
-        <title>code-diff</title>
-        <link
-          rel="shortcut icon"
-          href={`${basePath}/logo.svg`}
-          type="image/x-icon"
-        />
-      </Head>
-
       <div className="flex h-screen flex-col items-center">
         <h1 className="my-2 cursor-pointer text-center text-xl font-medium">
           <a href={basePath}>Code Diff</a>
