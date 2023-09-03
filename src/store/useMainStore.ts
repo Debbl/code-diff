@@ -19,7 +19,6 @@ export interface MainStoreActions {
   ) => void;
 }
 
-// TODO add persist use next.js
 const useMainStore = create<MainStoreState & MainStoreActions>()(
   persist(
     (set) => ({
