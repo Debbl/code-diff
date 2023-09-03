@@ -1,5 +1,5 @@
 "use client";
-import type { DiffOnMount } from "@monaco-editor/react";
+import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import { DiffEditor } from "@monaco-editor/react";
 import hljs from "highlight.js";
 import type { ElementRef } from "react";
@@ -11,9 +11,6 @@ import useTheme from "~/hooks/useTheme";
 import Alert from "~/components/Alert";
 
 export default function Page() {
-  const alertRef = useRef<ElementRef<typeof Alert>>(null);
-  useTheme();
-
   const [
     {
       originalValue,
@@ -41,8 +38,16 @@ export default function Page() {
     },
   ]);
 
+  useTheme();
+  const alertRef = useRef<ElementRef<typeof Alert>>(null);
+  const monacoRef = useRef<Monaco>();
+
   const handleOnMount: DiffOnMount = (editor, monaco) => {
+    monacoRef.current = monaco;
+
     setLanguages(monaco.languages.getLanguages());
+    editor.getOriginalEditor().setValue(originalValue);
+    editor.getModifiedEditor().setValue(modifiedValue);
 
     editor.onDidUpdateDiff(() => {
       const ov = editor.getModel()?.original.getValue() || "";
@@ -69,7 +74,7 @@ export default function Page() {
         </h1>
         <Alert ref={alertRef} />
 
-        <Header />
+        <Header monaco={monacoRef.current} />
 
         <main className="h-full w-full">
           <DiffEditor
@@ -77,8 +82,6 @@ export default function Page() {
               originalEditable: true,
               renderSideBySide,
             }}
-            original={originalValue}
-            modified={modifiedValue}
             onMount={handleOnMount}
             height="100%"
             theme={theme}

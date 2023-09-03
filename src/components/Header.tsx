@@ -1,21 +1,16 @@
 import { Icon } from "@iconify/react";
 import closeFilled from "@iconify/icons-carbon/close-filled";
 
+import type { Monaco } from "@monaco-editor/react";
 import GitHubInfo from "./GitHubInfo";
 import useHasHydrated from "~/hooks/useHasHydrated";
 import useMainStore from "~/store/useMainStore";
 import type { Theme } from "~/types";
 
-const Header: React.FC = () => {
+const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
   const [
     { language, languages, theme, renderSideBySide },
-    {
-      setOriginalValue,
-      setModifiedValue,
-      setLanguage,
-      setTheme,
-      setRenderSideBySide,
-    },
+    { setLanguage, setTheme, setRenderSideBySide },
   ] = useMainStore((s) => [
     {
       language: s.language,
@@ -28,8 +23,6 @@ const Header: React.FC = () => {
       setLanguages: s.setLanguages,
       setTheme: s.setTheme,
       setRenderSideBySide: s.setRenderSideBySide,
-      setOriginalValue: s.setOriginalValue,
-      setModifiedValue: s.setModifiedValue,
     },
   ]);
 
@@ -96,8 +89,9 @@ const Header: React.FC = () => {
       <div
         className="btn btn-circle btn-xs"
         onClick={() => {
-          setOriginalValue("");
-          setModifiedValue("");
+          monaco?.editor.getModels().forEach((model) => {
+            model.setValue("");
+          });
         }}
       >
         <Icon className="h-[18px] w-[18px] cursor-pointer" icon={closeFilled} />
