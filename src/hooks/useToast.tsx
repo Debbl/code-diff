@@ -1,28 +1,23 @@
+import { useState } from "react";
 import { Icon } from "@iconify/react";
 import informationFilled from "@iconify/icons-carbon/information-filled";
 import { createPortal } from "react-dom";
-import { forwardRef, useImperativeHandle, useState } from "react";
 
-const Alert: React.ForwardRefRenderFunction<{
-  showAlert: (message: string) => void;
-}> = (_, ref) => {
+const useToast = () => {
   const [isShow, setIsShow] = useState(false);
   const [message, setMessage] = useState("");
 
-  const showAlert = (message: string) => {
+  const showToast = (message: string) => {
     setIsShow(true);
     setMessage(message);
 
-    setTimeout(() => {
+    const id = setTimeout(() => {
       setIsShow(false);
+      clearTimeout(id);
     }, 2000);
   };
 
-  useImperativeHandle(ref, () => ({
-    showAlert,
-  }));
-
-  return (
+  const Toast = () => (
     <>
       {isShow &&
         createPortal(
@@ -43,6 +38,11 @@ const Alert: React.ForwardRefRenderFunction<{
         )}
     </>
   );
+
+  return {
+    Toast,
+    showToast,
+  };
 };
 
-export default forwardRef(Alert);
+export default useToast;

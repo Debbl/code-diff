@@ -2,14 +2,13 @@
 import type { DiffOnMount, Monaco } from "@monaco-editor/react";
 import { DiffEditor } from "@monaco-editor/react";
 import hljs from "highlight.js";
-import type { ElementRef } from "react";
 import { useRef } from "react";
 import { basePath } from "../../next.config";
 import useMainStore from "~/store/useMainStore";
 import Header from "~/components/Header";
 import useTheme from "~/hooks/useTheme";
-import Alert from "~/components/Alert";
 import useLatest from "~/hooks/useLatest";
+import useToast from "~/hooks/useToast";
 
 export default function Page() {
   const [
@@ -40,7 +39,7 @@ export default function Page() {
   ]);
 
   useTheme();
-  const alertRef = useRef<ElementRef<typeof Alert>>(null);
+  const { Toast, showToast } = useToast();
   const monacoRef = useRef<Monaco>();
   const languageRef = useLatest(language);
 
@@ -63,7 +62,7 @@ export default function Page() {
         guessLanguage !== languageRef.current &&
         languagesId.includes(guessLanguage)
       ) {
-        alertRef?.current?.showAlert(`已自动检测到语言 ${guessLanguage}`);
+        showToast(`已自动检测到语言 ${guessLanguage}`);
         setLanguage(guessLanguage);
       }
 
@@ -78,7 +77,8 @@ export default function Page() {
         <h1 className="my-2 cursor-pointer text-center text-xl font-medium">
           <a href={basePath}>Code Diff</a>
         </h1>
-        <Alert ref={alertRef} />
+
+        <Toast />
 
         <Header monaco={monacoRef.current} />
 
