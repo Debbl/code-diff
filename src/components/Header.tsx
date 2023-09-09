@@ -2,8 +2,8 @@ import { Icon } from "@iconify/react";
 import closeFilled from "@iconify/icons-carbon/close-filled";
 
 import type { Monaco } from "@monaco-editor/react";
+import { useHydrated } from "@debbl/ahooks";
 import GitHubInfo from "./GitHubInfo";
-import useHasHydrated from "~/hooks/useHasHydrated";
 import useMainStore from "~/store/useMainStore";
 import type { Theme } from "~/types";
 
@@ -26,7 +26,7 @@ const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
     },
   ]);
 
-  const hasHydrated = useHasHydrated();
+  const { isHydrated } = useHydrated();
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
@@ -50,7 +50,7 @@ const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
             onChange={handleLanguageChange}
             className="select select-bordered select-xs ml-3 w-60 border"
           >
-            {hasHydrated &&
+            {isHydrated &&
               languages.map((lang) => (
                 <option value={lang.id} key={lang.id}>
                   {lang.id}

@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@debbl/ahooks':
+    specifier: 0.0.4
+    version: 0.0.4(react@18.2.0)
   '@monaco-editor/react':
     specifier: ^4.5.2
     version: 4.5.2(monaco-editor@0.41.0)(react-dom@18.2.0)(react@18.2.0)
@@ -107,6 +110,14 @@ packages:
     dependencies:
       regenerator-runtime: 0.13.11
     dev: true
+
+  /@debbl/ahooks@0.0.4(react@18.2.0):
+    resolution: {integrity: sha512-iJuUsf8jMsHWpoiS42g7Fyx1gdJQsPa9hneSynHUj4aqFPwCxe9+GJSAHM1ooxNTNyACAHvFOlAVA6DhGw0t+A==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@debbl/eslint-config-basic@0.0.53(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.48.0):
     resolution: {integrity: sha512-6NHdw56Xs18mtPMzb6fGPmtGNg4KdPrxrs25Dn4d/Er68X4qsbh4WVNd++uPLyz0pYu2uHw7ZebpwMQQ8UsXPw==}
