@@ -2,8 +2,7 @@ import { Icon } from "@iconify/react";
 import closeFilled from "@iconify/icons-carbon/close-filled";
 
 import type { Monaco } from "@monaco-editor/react";
-import { useHydrated } from "@debbl/ahooks";
-import GitHubInfo from "./GitHubInfo";
+import { useGitHubInfo, useHydrated } from "@debbl/ahooks";
 import useMainStore from "~/store/useMainStore";
 import type { Theme } from "~/types";
 
@@ -27,6 +26,8 @@ const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
   ]);
 
   const { isHydrated } = useHydrated();
+
+  const { GitHubInfo } = useGitHubInfo("https://github.com/Debbl/code-diff");
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setLanguage(e.target.value);
@@ -97,7 +98,7 @@ const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
         <Icon className="h-[18px] w-[18px] cursor-pointer" icon={closeFilled} />
       </div>
 
-      <GitHubInfo />
+      <GitHubInfo className="ml-8 flex h-[18px] w-[18px] justify-center" />
     </header>
   );
 };
