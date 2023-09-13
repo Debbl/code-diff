@@ -32,8 +32,8 @@ dependencies:
 
 devDependencies:
   '@debbl/eslint-config':
-    specifier: ^0.0.61
-    version: 0.0.61(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(tailwindcss@3.3.3)(typescript@5.2.2)
+    specifier: ^0.0.62
+    version: 0.0.62(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(tailwindcss@3.3.3)(typescript@5.2.2)
   '@iconify/icons-carbon':
     specifier: ^1.2.20
     version: 1.2.20
@@ -121,8 +121,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@debbl/eslint-config-basic@0.0.61(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0):
-    resolution: {integrity: sha512-1VHWwzETrQohCyv963OmFQZ9b9ENvE2kbHRWjv9ZXPBeozUtlSDy1nRZNigyRd3Ds1UdGGTbTkzmyuqTWGtFHw==}
+  /@debbl/eslint-config-basic@0.0.62(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0):
+    resolution: {integrity: sha512-4vl6/5HitD5bvv58XSNRLp4D0HcTdECrZGYlzdS+jChMdTJ5bShxgNbtOiVQMKRNmor4UxaC1JnTF09/lC2cCQ==}
     peerDependencies:
       eslint: '>=8.24.0'
     dependencies:
@@ -149,8 +149,8 @@ packages:
       - supports-color
     dev: true
 
-  /@debbl/eslint-config-prettier@0.0.61(eslint@8.49.0):
-    resolution: {integrity: sha512-MafUEEd1jSi8RPegXVS+mCZYJ15Y5Bj1L4uV7+AGqwJEew+dfVdgSzCcZE1seVmsUPEWpbqk5xldhKBY0Gudjg==}
+  /@debbl/eslint-config-prettier@0.0.62(eslint@8.49.0):
+    resolution: {integrity: sha512-qIoN7ViUd+eEuGhzrR/3oPod0dih5cAd8ir3o0LrS+T530OJzpACFi/c8WRqv+8sS8dLuFw8Ckv0f86VeSIkRw==}
     peerDependencies:
       eslint: '>=8.24.0'
     dependencies:
@@ -160,12 +160,12 @@ packages:
       prettier: 2.8.8
     dev: true
 
-  /@debbl/eslint-config-react@0.0.61(eslint@8.49.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-qHjVEUhSQLpEc2DZ6O32DbL7h2HRGDQlJgQge0hTqrtV5bRVO46gNpdNyZ6yy4VotRFC6lrbpVDcqexitbob7Q==}
+  /@debbl/eslint-config-react@0.0.62(eslint@8.49.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-50vVKwsX3AWkng7RhMeWRs7AXGCIF6pM8/EMxKdPMTjZ18roL3rgJTXWI2GKiBYqiKhAXco3d94ybjLG/ZJSrw==}
     peerDependencies:
       eslint: '>=8.24.0'
     dependencies:
-      '@debbl/eslint-config-ts': 0.0.61(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-ts': 0.0.62(eslint@8.49.0)(typescript@5.2.2)
       eslint: 8.49.0
       eslint-plugin-react: 7.33.2(eslint@8.49.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.49.0)
@@ -176,13 +176,13 @@ packages:
       - typescript
     dev: true
 
-  /@debbl/eslint-config-solid@0.0.61(eslint@8.49.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-0TFayOCtQ9mWpR+n0OAowfV6UUrDgvYI4r/cQii3Cq/m0o2oSsvxWC7nsQhGvet3K6t3chlAsAzoMaoBRCBKRg==}
+  /@debbl/eslint-config-solid@0.0.62(eslint@8.49.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-IBtEz6SK0qw7WT05dLDPF60Gos58y0TJullfWtNBZ+6ggQflyuOHznn+hSdshZNq4AuB25BdaO/nZ8Oyi03g2Q==}
     peerDependencies:
       eslint: '>=8.24.0'
       typescript: '>=4.9.5'
     dependencies:
-      '@debbl/eslint-config-ts': 0.0.61(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-ts': 0.0.62(eslint@8.49.0)(typescript@5.2.2)
       eslint: 8.49.0
       eslint-plugin-solid: 0.12.1(eslint@8.49.0)(typescript@5.2.2)
       typescript: 5.2.2
@@ -192,8 +192,8 @@ packages:
       - supports-color
     dev: true
 
-  /@debbl/eslint-config-tailwindcss@0.0.61(eslint@8.49.0)(tailwindcss@3.3.3):
-    resolution: {integrity: sha512-4wl0z0Th7zMRdfWYeRePgHzMPK313nUTdJts10CCDc0gbDCzknBf2rLuE8d9HMZGM2nH30wYv00qyt2sSs6i+w==}
+  /@debbl/eslint-config-tailwindcss@0.0.62(eslint@8.49.0)(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-X3Pi415f975Ip1t6XS5zWvoIcYUlGVEIroXGy4yW5Qzrskx+IVCyf01STgPgbtUG/1qtVxrKN/TdzPvOntFsVw==}
     peerDependencies:
       eslint: '>=8.33.0'
     dependencies:
@@ -203,13 +203,13 @@ packages:
       - tailwindcss
     dev: true
 
-  /@debbl/eslint-config-ts@0.0.61(eslint@8.49.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-djKsntUlgd6uabcw4w5oJxj+hy244kL+O1HErMlbBe0H4VvT5HWOAopmbxC61fn+ZAjpQ/zkz1jQPQQJ8o0pWQ==}
+  /@debbl/eslint-config-ts@0.0.62(eslint@8.49.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-u8iAyHxd9F1aCa/hoA/lXh2bK1mhfxlSKE26me1wLLMQBRKFbKhbMzm5W0+VTq0XVEe3Urf3jWSbYM5OXZnlLg==}
     peerDependencies:
       eslint: '>=8.24.0'
       typescript: '>=4.8.4'
     dependencies:
-      '@debbl/eslint-config-basic': 0.0.61(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)
+      '@debbl/eslint-config-basic': 0.0.62(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)
       '@typescript-eslint/eslint-plugin': 5.62.0(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(typescript@5.2.2)
       '@typescript-eslint/parser': 5.62.0(eslint@8.49.0)(typescript@5.2.2)
       eslint: 8.49.0
@@ -220,13 +220,13 @@ packages:
       - supports-color
     dev: true
 
-  /@debbl/eslint-config-vue@0.0.61(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-1bUOLZZGAjEEKUOmuRCo3yuZ2yFgA7hx97ykyUKD5izeA+khBB29hZzbzzG4sZB/46ymz1xLy0Nki8DtrU7TAg==}
+  /@debbl/eslint-config-vue@0.0.62(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-lq0FulG2QLEOxiQjadopW9zENFPiLgjZdykLni3wwlPkMiSYzYxVzrJ2Q379JlSjKxZmK6sjpfmMADf30BZRBQ==}
     peerDependencies:
       eslint: '>=8.24.0'
     dependencies:
-      '@debbl/eslint-config-basic': 0.0.61(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)
-      '@debbl/eslint-config-ts': 0.0.61(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-basic': 0.0.62(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)
+      '@debbl/eslint-config-ts': 0.0.62(eslint@8.49.0)(typescript@5.2.2)
       eslint: 8.49.0
       eslint-plugin-vue: 9.17.0(eslint@8.49.0)
       local-pkg: 0.4.3
@@ -239,18 +239,18 @@ packages:
       - typescript
     dev: true
 
-  /@debbl/eslint-config@0.0.61(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(tailwindcss@3.3.3)(typescript@5.2.2):
-    resolution: {integrity: sha512-bNMF3tm9QCNG8e5viOaNtgCAxA+cNFAMSiRg1G3N6tJ3BnvXz4MqeDSoEZ9JWmwcMd9HD3kvidjnwpoFY2eaeA==}
+  /@debbl/eslint-config@0.0.62(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(tailwindcss@3.3.3)(typescript@5.2.2):
+    resolution: {integrity: sha512-C7oICigZ7CxuYtHDgYAtAo84+pgO7vb5gjCXpUQJBmC9m0cslIEunwvVFf0KsOjR/Qh18eFCk1D10luVEYuv7A==}
     peerDependencies:
       eslint: '>=8.24.0'
     dependencies:
-      '@debbl/eslint-config-basic': 0.0.61(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)
-      '@debbl/eslint-config-prettier': 0.0.61(eslint@8.49.0)
-      '@debbl/eslint-config-react': 0.0.61(eslint@8.49.0)(typescript@5.2.2)
-      '@debbl/eslint-config-solid': 0.0.61(eslint@8.49.0)(typescript@5.2.2)
-      '@debbl/eslint-config-tailwindcss': 0.0.61(eslint@8.49.0)(tailwindcss@3.3.3)
-      '@debbl/eslint-config-ts': 0.0.61(eslint@8.49.0)(typescript@5.2.2)
-      '@debbl/eslint-config-vue': 0.0.61(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-basic': 0.0.62(@typescript-eslint/eslint-plugin@5.62.0)(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)
+      '@debbl/eslint-config-prettier': 0.0.62(eslint@8.49.0)
+      '@debbl/eslint-config-react': 0.0.62(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-solid': 0.0.62(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-tailwindcss': 0.0.62(eslint@8.49.0)(tailwindcss@3.3.3)
+      '@debbl/eslint-config-ts': 0.0.62(eslint@8.49.0)(typescript@5.2.2)
+      '@debbl/eslint-config-vue': 0.0.62(@typescript-eslint/parser@5.62.0)(eslint@8.49.0)(typescript@5.2.2)
       eslint: 8.49.0
     transitivePeerDependencies:
       - '@typescript-eslint/eslint-plugin'

@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint . --ignore-path .gitignore",
-    "lint:fix": "next lint . --fix --ignore-path .gitignore"
+    "lint": "eslint . --ignore-path .gitignore",
+    "lint:fix": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "@debbl/ahooks": "0.0.7",
@@ -20,7 +20,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
-    "@debbl/eslint-config": "^0.0.58",
+    "@debbl/eslint-config": "^0.0.62",
     "@iconify/icons-carbon": "^1.2.20",
     "@iconify/react": "^4.1.1",
     "@types/node": "20.5.9",

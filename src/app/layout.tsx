@@ -12,7 +12,7 @@ export default function RootLayout({
         <title>code-diff</title>
         <link
           rel="shortcut icon"
-          href={`${basePath}/logo.svg`}
+          href={`${basePath!}/logo.svg`}
           type="image/x-icon"
         />
       </head>

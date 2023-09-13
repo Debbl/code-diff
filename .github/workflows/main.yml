@@ -1,7 +1,7 @@
 name: CI
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -33,5 +33,5 @@ jobs:
           external_repository: Debbl/tools.aiwan.run
           exclude_assets: ".github, .nojekyll"
           publish_branch: main
-          publish_dir: out 
-          destination_dir: "code-diff" 
+          publish_dir: out
+          destination_dir: code-diff
