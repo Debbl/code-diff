@@ -4,13 +4,10 @@ import closeFilled from "@iconify/icons-carbon/close-filled";
 import type { Monaco } from "@monaco-editor/react";
 import { useGitHubInfo, useHydrated } from "@debbl/ahooks";
 import useMainStore from "~/store/useMainStore";
-import type { Theme } from "~/types";
+import type { GetStoreState, Theme } from "~/types";
 
-const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
-  const [
-    { language, languages, theme, renderSideBySide },
-    { setLanguage, setTheme, setRenderSideBySide },
-  ] = useMainStore((s) => [
+const selector = (s: GetStoreState<typeof useMainStore>) =>
+  [
     {
       language: s.language,
       languages: s.languages,
@@ -23,7 +20,13 @@ const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
       setTheme: s.setTheme,
       setRenderSideBySide: s.setRenderSideBySide,
     },
-  ]);
+  ] as const;
+
+const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
+  const [
+    { language, languages, theme, renderSideBySide },
+    { setLanguage, setTheme, setRenderSideBySide },
+  ] = useMainStore(selector);
 
   const { isHydrated } = useHydrated();
 

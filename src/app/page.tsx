@@ -9,19 +9,10 @@ import useMainStore from "~/store/useMainStore";
 import Header from "~/components/Header";
 import useTheme from "~/hooks/useTheme";
 import useToast from "~/hooks/useToast";
+import type { GetStoreState } from "~/types";
 
-export default function Page() {
-  const [
-    {
-      originalValue,
-      modifiedValue,
-      language,
-      languages,
-      theme,
-      renderSideBySide,
-    },
-    { setOriginalValue, setModifiedValue, setLanguage, setLanguages },
-  ] = useMainStore((s) => [
+const selector = (s: GetStoreState<typeof useMainStore>) =>
+  [
     {
       originalValue: s.originalValue,
       modifiedValue: s.modifiedValue,
@@ -36,7 +27,20 @@ export default function Page() {
       setOriginalValue: s.setOriginalValue,
       setModifiedValue: s.setModifiedValue,
     },
-  ]);
+  ] as const;
+
+export default function Page() {
+  const [
+    {
+      originalValue,
+      modifiedValue,
+      language,
+      languages,
+      theme,
+      renderSideBySide,
+    },
+    { setOriginalValue, setModifiedValue, setLanguage, setLanguages },
+  ] = useMainStore(selector);
 
   useTheme();
   const { Toast, showToast } = useToast();
