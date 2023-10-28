@@ -10,28 +10,28 @@
     "lint:fix": "eslint . --fix --ignore-path .gitignore"
   },
   "dependencies": {
-    "@debbl/ahooks": "0.0.7",
-    "@monaco-editor/react": "^4.5.2",
-    "highlight.js": "^11.8.0",
-    "monaco-editor": "^0.41.0",
-    "next": "13.4.19",
+    "@debbl/ahooks": "0.0.10",
+    "@monaco-editor/react": "^4.6.0",
+    "highlight.js": "^11.9.0",
+    "monaco-editor": "^0.44.0",
+    "next": "14.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "zustand": "^4.4.1"
+    "zustand": "^4.4.4"
   },
   "devDependencies": {
-    "@debbl/eslint-config": "^0.0.62",
+    "@debbl/eslint-config": "^0.0.65",
     "@iconify/icons-carbon": "^1.2.20",
     "@iconify/react": "^4.1.1",
-    "@types/node": "20.5.9",
-    "@types/react": "18.2.21",
-    "@types/react-dom": "18.2.7",
-    "autoprefixer": "^10.4.15",
-    "daisyui": "^3.7.3",
-    "eslint": "^8.49.0",
-    "eslint-config-next": "13.4.19",
+    "@types/node": "20.8.9",
+    "@types/react": "18.2.33",
+    "@types/react-dom": "18.2.14",
+    "autoprefixer": "^10.4.16",
+    "daisyui": "^3.9.4",
+    "eslint": "^8.52.0",
+    "eslint-config-next": "14.0.0",
     "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3",
+    "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"
   }
 }
