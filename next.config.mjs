@@ -5,4 +5,4 @@ const nextConfig = {
   basePath: "/code-diff",
 };
 
-module.exports = nextConfig;
+export default nextConfig;

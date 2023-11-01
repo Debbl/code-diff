@@ -1,13 +1,14 @@
 {
   "name": "code-diff",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ignore-path .gitignore",
-    "lint:fix": "eslint . --fix --ignore-path .gitignore"
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@debbl/ahooks": "0.0.10",
@@ -20,7 +21,7 @@
     "zustand": "^4.4.4"
   },
   "devDependencies": {
-    "@debbl/eslint-config": "^0.0.65",
+    "@debbl/eslint-config": "^1.0.0",
     "@iconify/icons-carbon": "^1.2.20",
     "@iconify/react": "^4.1.1",
     "@types/node": "20.8.9",

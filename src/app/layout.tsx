@@ -1,5 +1,5 @@
 import "~/styles/globals.css";
-import { basePath } from "../../next.config";
+import { basePath } from "../../next.config.mjs";
 
 export default function RootLayout({
   children,

@@ -19,7 +19,7 @@ export interface MainStoreActions {
   setLanguages: (languages: MainStoreState["languages"]) => void;
   setTheme: (theme: MainStoreState["theme"]) => void;
   setRenderSideBySide: (
-    renderSideBySide: MainStoreState["renderSideBySide"]
+    renderSideBySide: MainStoreState["renderSideBySide"],
   ) => void;
 }
 
@@ -43,8 +43,8 @@ const useMainStore = create<MainStoreState & MainStoreActions>()(
     {
       name: "code-diff-main-store",
       version: 1,
-    }
-  )
+    },
+  ),
 );
 
 export default useMainStore;

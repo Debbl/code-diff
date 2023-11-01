@@ -6,6 +6,10 @@ import { useGitHubInfo, useHydrated } from "@debbl/ahooks";
 import useMainStore from "~/store/useMainStore";
 import type { GetStoreState, Theme } from "~/types";
 
+interface IProps {
+  monaco?: Monaco;
+}
+
 const selector = (s: GetStoreState<typeof useMainStore>) =>
   [
     {
@@ -22,7 +26,7 @@ const selector = (s: GetStoreState<typeof useMainStore>) =>
     },
   ] as const;
 
-const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
+const Header = ({ monaco }: IProps) => {
   const [
     { language, languages, theme, renderSideBySide },
     { setLanguage, setTheme, setRenderSideBySide },
@@ -39,7 +43,7 @@ const Header: React.FC<{ monaco?: Monaco }> = ({ monaco }) => {
     setTheme(e.target.value as Theme);
   };
   const handleRenderSideBySideChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setRenderSideBySide(e.target.checked);
   };

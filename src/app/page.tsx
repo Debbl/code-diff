@@ -4,7 +4,7 @@ import { DiffEditor } from "@monaco-editor/react";
 import hljs from "highlight.js";
 import { useRef } from "react";
 import { useLatest } from "@debbl/ahooks";
-import { basePath } from "../../next.config";
+import { basePath } from "../../next.config.mjs";
 import useMainStore from "~/store/useMainStore";
 import Header from "~/components/Header";
 import useTheme from "~/hooks/useTheme";

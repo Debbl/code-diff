@@ -34,7 +34,7 @@ const useToast = () => {
             <Icon icon={informationFilled} />
             <span>{message}</span>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );
