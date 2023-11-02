@@ -1,5 +1,7 @@
 import "~/styles/globals.css";
-import { basePath } from "../../next.config.mjs";
+import nextConfig from "../../next.config.mjs";
+
+const { basePath } = nextConfig;
 
 export default function RootLayout({
   children,
