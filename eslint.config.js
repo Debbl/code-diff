@@ -5,4 +5,5 @@ export default config({
     next: true,
   },
   typescript: true,
+  tailwindcss: true,
 });
