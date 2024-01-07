@@ -24,7 +24,6 @@ const useToast = () => {
           <div
             className="
             alert 
-            alert-success
             fixed
             right-0
             top-4
