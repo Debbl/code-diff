@@ -7,10 +7,10 @@ jobs:
   pages:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@latest
+      - uses: actions/checkout@4
 
       - name: Use Node.js latest
-        uses: actions/setup-node@latest
+        uses: actions/setup-node@4
         with:
           node-version: lts
 
@@ -26,7 +26,7 @@ jobs:
         run: pnpm build
 
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@latest
+        uses: peaceiris/actions-gh-pages@4
         with:
           personal_token: ${{ secrets.PERSONAL_TOKEN }}
           external_repository: Debbl/tools.aiwan.run
