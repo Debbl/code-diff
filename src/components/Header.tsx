@@ -102,10 +102,10 @@ const Header = ({ monaco }: IProps) => {
           });
         }}
       >
-        <Icon className="h-[18px] w-[18px] cursor-pointer" icon={closeFilled} />
+        <Icon className="size-[18px] cursor-pointer" icon={closeFilled} />
       </div>
 
-      <GitHubInfo className="ml-8 flex h-[18px] w-[18px] justify-center" />
+      <GitHubInfo className="ml-8 flex size-[18px] justify-center" />
     </header>
   );
 };

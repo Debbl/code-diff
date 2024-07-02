@@ -88,7 +88,7 @@ export default function Page() {
 
         <Header monaco={monacoRef.current} />
 
-        <main className="h-full w-full">
+        <main className="size-full">
           <DiffEditor
             options={{
               originalEditable: true,
