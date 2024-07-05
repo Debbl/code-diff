@@ -1,8 +1,8 @@
 import { useEffect } from "react";
-import useMainStore from "~/store/useMainStore";
+import { useMainStore } from "~/store/useMainStore";
 
 const useTheme = () => {
-  const theme = useMainStore((s) => (s.theme === "vs-dark" ? "dark" : "light"));
+  const { theme } = useMainStore();
 
   useEffect(() => {
     const html = document.querySelector("html");

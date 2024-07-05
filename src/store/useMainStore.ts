@@ -1,6 +1,7 @@
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
 import type { languages } from "monaco-editor/esm/vs/editor/editor.api";
+import { useAtom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
+
 import type { Theme } from "~/types";
 
 export interface MainStoreState {
@@ -23,28 +24,29 @@ export interface MainStoreActions {
   ) => void;
 }
 
-const useMainStore = create<MainStoreState & MainStoreActions>()(
-  persist(
-    (set) => ({
-      originalValue: "",
-      modifiedValue: "",
-      language: "plaintext",
-      languages: [],
-      theme: "light",
-      renderSideBySide: true,
-
-      setOriginalValue: (originalValue) => set({ originalValue }),
-      setModifiedValue: (modifiedValue) => set({ modifiedValue }),
-      setLanguage: (language) => set({ language }),
-      setLanguages: (languages) => set({ languages }),
-      setTheme: (theme) => set({ theme }),
-      setRenderSideBySide: (renderSideBySide) => set({ renderSideBySide }),
-    }),
-    {
-      name: "code-diff-main-store",
-      version: 1,
-    },
-  ),
+const useMainStoreAtom = atomWithStorage<MainStoreState>(
+  "code-diff-main-store",
+  {
+    originalValue: "",
+    modifiedValue: "",
+    language: "plaintext",
+    languages: [],
+    theme: "light",
+    renderSideBySide: true,
+  },
 );
 
-export default useMainStore;
+export function useMainStore() {
+  const [state, set] = useAtom(useMainStoreAtom);
+
+  return {
+    ...state,
+    setOriginalValue: (originalValue) => set((s) => ({ ...s, originalValue })),
+    setModifiedValue: (modifiedValue) => set((s) => ({ ...s, modifiedValue })),
+    setLanguage: (language) => set((s) => ({ ...s, language })),
+    setLanguages: (languages) => set((s) => ({ ...s, languages })),
+    setTheme: (theme) => set((s) => ({ ...s, theme })),
+    setRenderSideBySide: (renderSideBySide) =>
+      set((s) => ({ ...s, renderSideBySide })),
+  } as MainStoreActions & MainStoreState;
+}

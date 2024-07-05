@@ -1,4 +1,5 @@
 import "~/styles/globals.css";
+import { Provider } from "jotai";
 import nextConfig from "../../next.config.mjs";
 
 const { basePath } = nextConfig;
@@ -18,7 +19,9 @@ export default function RootLayout({
           type="image/x-icon"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        <Provider>{children}</Provider>
+      </body>
     </html>
   );
 }
